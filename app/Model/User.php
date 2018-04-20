@@ -23,6 +23,11 @@ class User extends Authenticatable
     public $primaryKey = 'user_id';
 
     /**
+     * @var string
+     */
+    public $table = 'user';
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function userType()
