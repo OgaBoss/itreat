@@ -21,4 +21,28 @@ class User extends Authenticatable
      * @var string
      */
     public $primaryKey = 'user_id';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userType()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userStatus()
+    {
+        return $this->belongsTo(UserStatus::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function userChangedPassword()
+    {
+        return $this->belongsTo(PasswordChanged::class);
+    }
 }
