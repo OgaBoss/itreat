@@ -25,11 +25,11 @@ class AuthenticateQRCodeController extends Controller
     }
 
     /**
-     * @param QRCodesRequest $request
+     * @param $code
      * @return mixed
      */
-    public function __invoke(QRCodesRequest $request)
+    public function __invoke($code)
     {
-        return $this->service->init($request->qr_code);
+        return $this->service->init($code);
     }
 }
