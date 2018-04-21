@@ -60,5 +60,7 @@ class Kernel extends HttpKernel
         'guest' => \ITreat\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+        'merchant' => \ITreat\Http\Middleware\MerchantMiddleware::class,
     ];
 }

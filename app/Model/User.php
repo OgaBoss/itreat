@@ -33,6 +33,11 @@ class User extends Authenticatable
     public $timestamps = false;
 
     /**
+     *
+     */
+    const MERCHANT_TYPE_ID = 3;
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function userType()
@@ -54,5 +59,13 @@ class User extends Authenticatable
     public function userChangedPassword()
     {
         return $this->belongsTo(PasswordChanged::class);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMerchant()
+    {
+        return intval($this->user_type_id) === self::MERCHANT_TYPE_ID;
     }
 }

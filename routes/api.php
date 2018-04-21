@@ -14,4 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::post('/login', '\ITreat\Http\Controllers\Auth\LoginController');
+Route::post('/authenticate', '\ITreat\Http\Controllers\Api\AuthenticateQRCodeController');
 Route::apiresource('/merchants', '\ITreat\Http\Controllers\Api\MerchantController');
