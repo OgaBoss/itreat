@@ -3,6 +3,8 @@
 namespace ITreat\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use ITreat\Repository\Merchant\IMerchant;
+use ITreat\Repository\Merchant\MerchantRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            IMerchant::class,
+            MerchantRepository::class
+        );
     }
 }
