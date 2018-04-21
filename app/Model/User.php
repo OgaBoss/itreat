@@ -28,6 +28,11 @@ class User extends Authenticatable
     public $table = 'user';
 
     /**
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function userType()

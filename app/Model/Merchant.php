@@ -26,6 +26,11 @@ class Merchant extends Model
     public $guarded = [];
 
     /**
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category()

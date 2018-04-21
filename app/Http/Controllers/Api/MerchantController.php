@@ -4,6 +4,7 @@ namespace ITreat\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use ITreat\Http\Controllers\Controller;
+use ITreat\Http\Requests\MerchantRequest;
 use ITreat\Http\Resources\MerchantResource;
 use ITreat\Repository\Merchant\IMerchant;
 
@@ -34,18 +35,18 @@ class MerchantController extends Controller
      */
     public function index()
     {
-        return response()->json(['status' => 'success', 'data' => MerchantResource::collection($this->repository->all())]);
+        return response()->json(['status' => 'success', 'data' => MerchantResource::collection($this->repository->all())], 20);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  MerchantRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MerchantRequest $request)
     {
-        //
+        return response()->json(['status' => 'success', 'data' => $this->repository->create($request->all())], 201);
     }
 
     /**
@@ -56,7 +57,7 @@ class MerchantController extends Controller
      */
     public function show($id)
     {
-        return response()->json(['status' => 'success', 'data' => new MerchantResource($this->repository->find($id))]);
+        return response()->json(['status' => 'success', 'data' => new MerchantResource($this->repository->find($id))], 200);
 
     }
 
