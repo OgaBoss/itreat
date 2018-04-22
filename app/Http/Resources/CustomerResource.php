@@ -4,7 +4,7 @@ namespace ITreat\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class QRCodesResource extends Resource
+class CustomerResource extends Resource
 {
     /**
      * Transform the resource into an array.
@@ -17,6 +17,7 @@ class QRCodesResource extends Resource
         return [
             'customer_id'                           => $this->customer_id,
             'customer_mobile_number'                => $this->customer_mobile_number,
+            'customer_name'                         => $this->customer_name,
             'customer_email'                        => $this->customer_email,
             'customer_nationality'                  => $this->customer_nationality,
             'customer_activation_date'              => $this->customer_activation_date,

@@ -8,7 +8,7 @@
 
 namespace ITreat\Service;
 
-use ITreat\Http\Resources\QRCodesResource;
+use ITreat\Http\Resources\CustomerResource;
 use ITreat\Repository\Customer\ICustomer;
 use ITreat\Repository\QRCodes\IQRCodes;
 
@@ -44,7 +44,7 @@ class QRActivationAuthentication
         $authenticatedCodeResponse = $this->getQRCode($code);
 
         if (!is_null($authenticatedCodeResponse)) {
-            return response()->json(['status' => 'success', 'data' => new QRCodesResource($authenticatedCodeResponse->customer)], 200);
+            return response()->json(['status' => 'success', 'data' => new CustomerResource($authenticatedCodeResponse->customer)], 200);
         }
 
         return response()->json(['status' => 'error', 'data' => 'This QR Code does not exist.']);
