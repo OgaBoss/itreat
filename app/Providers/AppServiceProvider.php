@@ -7,6 +7,8 @@ use ITreat\Repository\Customer\CustomerRepository;
 use ITreat\Repository\Customer\ICustomer;
 use ITreat\Repository\Merchant\IMerchant;
 use ITreat\Repository\Merchant\MerchantRepository;
+use ITreat\Repository\MerchantProfile\IMerchantProfile;
+use ITreat\Repository\MerchantProfile\MerchantProfileRepository;
 use ITreat\Repository\QRCodes\IQRCodes;
 use ITreat\Repository\QRCodes\QRCodeRepository;
 
@@ -42,6 +44,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ICustomer::class,
             CustomerRepository::class
+        );
+
+        $this->app->bind(
+            IMerchantProfile::class,
+            MerchantProfileRepository::class
         );
     }
 }
