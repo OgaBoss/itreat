@@ -18,6 +18,9 @@ class CustomerActivityController extends Controller
     public function __construct(ICustomerActivity $repository)
     {
         $this->repository = $repository;
+
+        $this->middleware('jwt.auth');
+        $this->middleware('merchant');
     }
 
     /**
