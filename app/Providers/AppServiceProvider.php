@@ -5,6 +5,8 @@ namespace ITreat\Providers;
 use Illuminate\Support\ServiceProvider;
 use ITreat\Repository\Customer\CustomerRepository;
 use ITreat\Repository\Customer\ICustomer;
+use ITreat\Repository\CustomerActivity\CustomerActivityRepository;
+use ITreat\Repository\CustomerActivity\ICustomerActivity;
 use ITreat\Repository\Merchant\IMerchant;
 use ITreat\Repository\Merchant\MerchantRepository;
 use ITreat\Repository\MerchantProfile\IMerchantProfile;
@@ -49,6 +51,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             IMerchantProfile::class,
             MerchantProfileRepository::class
+        );
+
+        $this->app->bind(
+            ICustomerActivity::class,
+            CustomerActivityRepository::class
         );
     }
 }

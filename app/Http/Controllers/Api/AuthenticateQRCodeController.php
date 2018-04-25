@@ -22,6 +22,9 @@ class AuthenticateQRCodeController extends Controller
     public function __construct(QRActivationAuthentication $service)
     {
         $this->service = $service;
+
+        $this->middleware('jwt.auth');
+        $this->middleware('merchant');
     }
 
     /**

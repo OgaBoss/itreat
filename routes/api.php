@@ -17,3 +17,4 @@ Route::post('/login', '\ITreat\Http\Controllers\Auth\LoginController');
 Route::get('/code/{code}/authenticate', '\ITreat\Http\Controllers\Api\AuthenticateQRCodeController');
 Route::apiresource('/merchants', '\ITreat\Http\Controllers\Api\MerchantController');
 Route::apiresource('/profiles', '\ITreat\Http\Controllers\Api\MerchantCompanyProfileController');
+Route::apiresource('/customer-activities', '\ITreat\Http\Controllers\Api\CustomerActivityController');

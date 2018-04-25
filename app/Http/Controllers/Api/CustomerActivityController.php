@@ -4,30 +4,20 @@ namespace ITreat\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use ITreat\Http\Controllers\Controller;
-use ITreat\Http\Requests\MerchantCompanyProfileRequest;
-use ITreat\Repository\MerchantProfile\IMerchantProfile;
+use ITreat\Http\Requests\CustomerActivityRequest;
+use ITreat\Repository\CustomerActivity\ICustomerActivity;
 
-/**
- * Class MerchantCompanyProfileController
- * @package ITreat\Http\Controllers\Api
- */
-class MerchantCompanyProfileController extends Controller
+class CustomerActivityController extends Controller
 {
-    /**
-     * @var
-     */
     protected $repository;
 
     /**
-     * MerchantCompanyProfileController constructor.
+     * CustomerActivityController constructor.
      * @param $repository
      */
-    public function __construct(IMerchantProfile $repository)
+    public function __construct(ICustomerActivity $repository)
     {
         $this->repository = $repository;
-
-        $this->middleware('jwt.auth');
-        $this->middleware('merchant');
     }
 
     /**
@@ -43,10 +33,10 @@ class MerchantCompanyProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  MerchantCompanyProfileRequest  $request
+     * @param  CustomerActivityRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MerchantCompanyProfileRequest $request)
+    public function store(CustomerActivityRequest $request)
     {
         return response()->json(['status' => 'success', 'data' => $this->repository->create($request->all())]);
     }

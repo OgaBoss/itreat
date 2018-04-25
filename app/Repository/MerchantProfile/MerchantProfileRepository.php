@@ -8,7 +8,6 @@
 
 namespace ITreat\Repository\MerchantProfile;
 
-
 use ITreat\Model\MerchantCompanyProfile;
 use ITreat\Repository\BaseRepository;
 
